@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35825.156
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FYP-Automation", "FYP-Automation\FYP-Automation.csproj", "{F037DACD-A3C1-7D31-F72A-DE5C54E93B8F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F037DACD-A3C1-7D31-F72A-DE5C54E93B8F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F037DACD-A3C1-7D31-F72A-DE5C54E93B8F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F037DACD-A3C1-7D31-F72A-DE5C54E93B8F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F037DACD-A3C1-7D31-F72A-DE5C54E93B8F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1572CA4F-4654-4ECA-B6A7-9986E65CA25E}
+	EndGlobalSection
+EndGlobal
