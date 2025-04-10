@@ -23,11 +23,6 @@ COPY . ./
 # Build the project
 RUN dotnet build --configuration Release
 
-# Run the tests (filtered by your specific test class)
+# Run the tests
 RUN dotnet test --filter "FullyQualifiedName=FYPAutomation.End_To_End_Tests.FullApplicationTest" --configuration Release
 
-# Stage 2: Optional
-# FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS runtime
-# WORKDIR /app
-# COPY --from=build /app ./
-# ENTRYPOINT ["dotnet", "FYP-Automation.dll"]
