@@ -5,7 +5,7 @@ FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /app
 
 # Copy the project files
-COPY FYP-Automation.Process.sln ./  
+COPY FYP-Automation.sln ./  
 COPY FYP-Automation/*.csproj ./FYP-Automation/
 
 # Restore dependencies (via NuGet)
