@@ -9,13 +9,18 @@ using System.Runtime.InteropServices;
 
 namespace FYPAutomation.Driver
 {
-    public class Driver
+    public class SeleniumDriver
     {
         private WebDriver driver;
         private int RetryCount = 3;
-        public Driver(WebDriver Driver)
+        public SeleniumDriver()
         {
-            this.driver = Driver;
+            var options = new ChromeOptions();
+            options.AddArgument("--headless");
+            options.AddArgument("--no-sandbox");
+            options.AddArgument("--disable-dev-shm-usage"); 
+            options.AddArgument("--remote-debugging-port=9222"); 
+            this.driver = new ChromeDriver(options);
         }
 
         public void GoToWebsite(string url)
@@ -23,36 +28,46 @@ namespace FYPAutomation.Driver
             driver.Navigate().GoToUrl(url);
         }
 
-        public void RetryableElementClick(By Element)
+        public void RetryableElementClick(By Element, string elementname)
         {
             int count = 0;
-            while (RetryCount < count)
+            while (RetryCount > count)
             {
                 try
                 {
                     driver.FindElement(Element).Click();
+                    break;
                 }
                 catch (Exception e)
                 {
                     count++;
                     Thread.Sleep(1000);
+                    if(count == 3)
+                    {
+                        Console.WriteLine("Test Failed Cannot find element: " + elementname);
+                    }
                 }
             }
         }
 
-        public void RetryableElementInsert(By Element, string text)
+        public void RetryableElementInsert(By Element, string text, string elementName)
         {
             int count = 0;
-            while (RetryCount < count)
+            while (RetryCount > count)
             {
                 try
                 {
                     driver.FindElement(Element).SendKeys(text);
+                    break;
                 }
                 catch (Exception e)
                 {
                     count++;
                     Thread.Sleep(1000);
+                    if (count == 3)
+                    {
+                        Console.WriteLine("Test Failed Cannot find element: " + elementName);
+                    }
                 }
             }
         }
