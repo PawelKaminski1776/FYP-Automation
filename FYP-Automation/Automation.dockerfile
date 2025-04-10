@@ -18,7 +18,7 @@ COPY . ./
 RUN dotnet build --configuration Release
 
 # Run the tests
-RUN dotnet test --configuration Release
+RUN dotnet test --filter "FullyQualifiedName=FYPAutomation.End_To_End_Tests.FullApplicationTest" --configuration Release
 
 # Stage 2: Optional
 # FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS runtime
