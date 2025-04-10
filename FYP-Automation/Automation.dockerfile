@@ -18,7 +18,7 @@ COPY FYP-Automation/*.csproj ./FYP-Automation/
 RUN dotnet restore
 
 # Copy the rest of the application
-COPY . ./
+COPY . ./ 
 
 # Build the project
 RUN dotnet build --configuration Release
@@ -26,8 +26,14 @@ RUN dotnet build --configuration Release
 # Run the tests (filtered by your specific test class)
 RUN dotnet test --filter "FullyQualifiedName=FYPAutomation.End_To_End_Tests.FullApplicationTest" --configuration Release
 
-# Stage 2: Optional
+# Stage 2: Runtime Stage
 FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS runtime
+
+# Set working directory
 WORKDIR /app
+
+# Copy the app from the build stage
 COPY --from=build /app ./
+
+# Entry point to run the application
 ENTRYPOINT ["dotnet", "FYP-Automation.dll"]
