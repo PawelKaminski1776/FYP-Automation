@@ -5,7 +5,8 @@ FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /app
 
 # Copy the project files
-COPY *.csproj ./
+COPY FYP-Automation.Process.sln ./  
+COPY FYP-Automation/*.csproj ./FYP-Automation/
 
 # Restore dependencies (via NuGet)
 RUN dotnet restore
@@ -19,7 +20,7 @@ RUN dotnet build --configuration Release
 # Run the tests
 RUN dotnet test --configuration Release
 
-# Stage 2: Optional - If you want to run the application after tests, use this stage
+# Stage 2: Optional
 # FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS runtime
 # WORKDIR /app
 # COPY --from=build /app ./
